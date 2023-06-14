@@ -1,4 +1,4 @@
-function pedirDato(texto) {
+/* function pedirDato(texto) {
     let dato = prompt(texto)
     return dato
 }
@@ -7,6 +7,18 @@ let nombre = pedirDato("Ingrese su nombre")
 let apellido = pedirDato("Ingrese su apellido")
 
 alert("Bienvenid@ " + nombre + " " + apellido)
+ */
+
+//esto va a reemplazar la manera de arriba de pedir nombre y apellido
+/* const persona = {}
+
+persona.nombre = prompt("Ingrese su nombre")
+persona.apellido = prompt("Ingrese su apellido")
+console.log("Bienvenid@ " + persona.nombre + " " + persona.apellido)
+alert("Bienvenid@ " + persona.nombre + " " + persona.apellido)
+ */
+
+/* 
 
 let cantidadProductos = parseInt(prompt("Ingrese la cantidad de productos:"));
 let listaProductos = "";
@@ -69,3 +81,111 @@ if (!isNaN(codigoPostal)) {
     console.log("Error")
     alert("El numero es incorrecto, por favor vuelva a ingresar su codigo postal")
 }
+ */
+/* 
+ej cargar array con entrada
+const listaNombres = []
+let cantidad = 5
+
+do {
+    let entrada = prompt("Ingrese nombre del producto")
+    listaNombres.push(entrada.toUpperCase())
+    console.log(listaNombres.length)
+    
+} while (listaNombres.length != cantidad);
+
+const nuevaLista = listaNombres.concat[(ana)]
+alert(nuevaLista.join("\n")) */
+
+let productos = [
+    { id: 1, nombre: "Mate Argentina Campeon Az", precio: 5000 },
+    { id: 2, nombre: "Mate Mundi", precio: 3500 },
+    { id: 3, nombre: "Mate Moli Borgoña", precio: 2000 },
+    { id: 4, nombre: "Mate Moli Blanco", precio: 2500 },
+    { id: 5, nombre: "Mate Argentina Campeon Ng", precio: 5000 },
+    { id: 6, nombre: "Mate Moli Vd Oliva", precio: 3200 },
+]
+
+let carrito = []
+
+let seleccion = prompt("Hola! ¿Desea ver los productos para comprar?")
+
+// while (seleccion != "si" && seleccion != "no") {
+//     alert("Hola! ¿Desea ver los productos para comprar?")
+//     seleccion = prompt("Hola! ¿Desea ver los productos para comprar?")
+// }
+
+if (seleccion === "si") {
+    alert("lista de productos")
+    let todoslosProductos = productos.map(
+        (productos) => productos.nombre + " " + "$" + productos.precio
+    )
+    alert(todoslosProductos.join("\n"))
+} else if (seleccion === "no") {
+    alert("Gracias por su visita, hasta pronto!")
+}
+
+while (seleccion != "no") {
+    let producto = prompt("Agrega un producto al carrito")
+    let precio = 0
+
+    if (producto == "Mate Argentina Campeon Az" || "Mate Mundi" || "Mate Moli Borgoña" || "Mate Moli Blanco" || "Mate Argentina Campeon Ng" || "Mate Moli Vd Oliva") {
+        switch (productos) {
+            case "Mate Argentina Campeon Az":
+                precio = 5000
+                break;
+            case "Mate Mundi":
+                precio = 3500
+                break;
+            case "Mate Moli Borgoña":
+                precio = 2000
+                break;
+            case "Mate Moli Blanco":
+                precio = 2500
+                break;
+            case "Mate Argentina Campeon Ng":
+                precio = 5000
+                break;
+            case "Mate Moli Vd Oliva":
+                precio = 3200
+                break;
+            default:
+                break;
+        }
+        carrito.push({ producto, precio })
+        console.log(carrito)
+    } else {
+        alert("Por el momento no contamos con ese producto")
+    }
+    seleccion = prompt("Desea seguir comprando?")
+
+    while (seleccion === "no") {
+        alert("Gracias por su compra!")
+        carrito.forEach((carritoFinal) => {
+            console.log(`producto: ${carritoFinal.producto}, precio: ${carritoFinal.precio}`)
+        })
+        break;
+    }
+}
+
+const totalFinal = carrito.reduce((acumulador, elemento) => acumulador + elemento.precio, 0)
+console.log(totalFinal)
+
+
+
+/* 
+for (const producto of productos) {
+    console.log(producto.nombre)   
+}
+
+console.log(productos)
+
+ */
+/* let productosFiltrados = productos.filter((producto) => producto.precio < 3000)
+
+for (const producto of productosFiltrados) {
+    console.log(producto.precio)
+}
+ */
+let total = productos.reduce((acumulador, producto) => acumulador + producto.precio, 0)
+console.log(total)
