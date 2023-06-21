@@ -142,18 +142,3 @@ if (!isNaN(codigoPostal)) {
     console.log("Error")
     alert("El numero es incorrecto, por favor vuelva a ingresar su codigo postal")
 }
-
-for (const producto of productos) {
-    console.log(producto.nombre)
-}
-
-console.log(productos)
-
-let productosFiltrados = productos.filter((producto) => producto.precio < 3000)
-
-for (const producto of productosFiltrados) {
-    console.log(producto.precio)
-}
-
-let totall = productos.reduce((acumulador, producto) => acumulador + producto.precio, 0)
-console.log(total)
